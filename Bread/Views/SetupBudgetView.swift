@@ -11,7 +11,7 @@ import SwiftUI
 struct SetupBudgetView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var manager: BudgetizeDataManager
+    @ObservedObject var manager: BreadDataManager
     @State private var amount: Double = 0.00
     
     // MARK: - Main rendering function
@@ -50,6 +50,6 @@ struct SetupBudgetView: View {
 // MARK: - Render preview UI
 struct SetupBudgetView_Previews: PreviewProvider {
     static var previews: some View {
-        SetupBudgetView(manager: BudgetizeDataManager())
+        SetupBudgetView(manager: BreadDataManager())
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 /// A list of categories and expenses
 struct ExpensesListView: View {
     
-    @ObservedObject var manager: BudgetizeDataManager
+    @ObservedObject var manager: BreadDataManager
     var didSelectCategory: (_ category: SpendingCategory) -> Void
 
     // MARK: - Main rendering function
@@ -67,6 +67,6 @@ struct ExpensesListView: View {
 // MARK: - Render preview UI
 struct ExpensesListView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpensesListView(manager: BudgetizeDataManager(), didSelectCategory: { _ in })
+        ExpensesListView(manager: BreadDataManager(), didSelectCategory: { _ in })
     }
 }

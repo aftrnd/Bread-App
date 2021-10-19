@@ -34,7 +34,7 @@ enum AlertType: Identifiable {
 /// Main content/app screen
 struct DashboardContentView: View {
     
-    @ObservedObject private var manager = BudgetizeDataManager()
+    @ObservedObject private var manager = BreadDataManager()
     @State private var modalFlow: ModalFlow?
     @State private var alertType: AlertType?
     @State private var didShowOverbudgetAlert: Bool = false

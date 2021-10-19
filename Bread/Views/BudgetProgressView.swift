@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-/// Shows the second layer on top of the header view with the budget progress bar
+// Shows the second layer on top of the header view with the budget progress bar
 struct BudgetProgressView: View {
     
-    @ObservedObject var manager: BudgetizeDataManager
-
-    // MARK: - Main rendering function
+    @ObservedObject var manager: BreadDataManager
+    
+    // Main rendering function
     var body: some View {
         VStack {
             Spacer(minLength: UIScreen.main.bounds.height/3.5)
@@ -27,6 +27,7 @@ struct BudgetProgressView: View {
                         Text("\(manager.budget > 0 ? String(format: "%.2f", (manager.spent*100.0)/manager.budget) : "0")%")
                             .fontWeight(.medium).lineLimit(1)
                     }.foregroundColor(Color(#colorLiteral(red: 0.3080217838, green: 0.3223729134, blue: 0.3327233195, alpha: 1)))
+                    
                     GeometryReader { reader in
                         ZStack {
                             RoundedRectangle(cornerRadius: 10).frame(height: 3).foregroundColor(Color(#colorLiteral(red: 0.8183905482, green: 0.8496081233, blue: 0.9326652884, alpha: 1)))
@@ -48,6 +49,6 @@ struct BudgetProgressView: View {
 // MARK: - Render preview UI
 struct BudgetProgressView_Previews: PreviewProvider {
     static var previews: some View {
-        BudgetProgressView(manager: BudgetizeDataManager())
+        BudgetProgressView(manager: BreadDataManager())
     }
 }

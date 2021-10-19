@@ -8,12 +8,12 @@
 import SwiftUI
 import Foundation
 
-/// Months of the year
+// Months of the year
 enum Month: String, CaseIterable {
     case January, February, March, April, May, June, July, August, September, October, November, December
 }
 
-/// A list of categories to track expenses
+// A list of categories to track expenses
 enum SpendingCategory: String, CaseIterable {
     case food
     case housing
@@ -23,21 +23,21 @@ enum SpendingCategory: String, CaseIterable {
     case other
 }
 
-/// Main data manager for the app
-class BudgetizeDataManager: ObservableObject {
+// Main data manager for the app
+class BreadDataManager: ObservableObject {
     
-    /// These properties are dynamic and will invoke UI changes
+    // These properties are dynamic and will invoke UI changes
     @Published var selectedMonth: String = Date().month
     @Published var budget: Double = 0.0
     @Published var spent: Double = 0.0
     
-    /// Default initizlier
+    // Default initizlier
     init() {
         getBudgetNumbers()
     }
     
-    // MARK: - Private functions
-    /// Get budget/spent numbers for `selectedMonth`
+    // Private functions
+    // Get budget/spent numbers for `selectedMonth`
     private func getBudgetNumbers() {
         spent = 0.0
         budget = UserDefaults.standard.double(forKey: "budget_\(selectedMonth)")
@@ -51,7 +51,7 @@ class BudgetizeDataManager: ObservableObject {
         getBudgetNumbers()
     }
     
-    // MARK: - Public functions
+    // Public functions
     func selectPreviousMonth() {
         if selectedMonth == Month.January.rawValue { return }
         let currentMonthIndex = Month.allCases.firstIndex(of: Month(rawValue: selectedMonth)!)!

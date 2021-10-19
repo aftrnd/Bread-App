@@ -11,7 +11,7 @@ import SwiftUI
 struct LogExpenseView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var manager: BudgetizeDataManager
+    @ObservedObject var manager: BreadDataManager
     @State private var amount: Double = 0.00
     @State private var spendLocation: String = ""
     @State private var spendCategory: SpendingCategory?
@@ -24,15 +24,15 @@ struct LogExpenseView: View {
             VStack(spacing: 0) {
                 Text(amount.dollarAmount).font(.system(size: 50)).bold()
                 Text("How much did you spend?").foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
-                Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)).frame(width: UIScreen.main.bounds.width-60, height: 1).padding([.leading, .trailing]).padding()
+                Color(.gray).frame(width: UIScreen.main.bounds.width-60, height: 1).padding([.leading, .trailing]).padding()
                 HStack(alignment: .bottom) {
                     VStack(spacing: 0) {
-                        TextField("ex: Apple", text: $spendLocation).multilineTextAlignment(.center).font(.system(size: 30))
+                        TextField("Amazon", text: $spendLocation).multilineTextAlignment(.center).font(.system(size: 30))
                         Text("Where did you spend?").foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
                     }.frame(width: UIScreen.main.bounds.width/2.5)
                     RoundedRectangle(cornerRadius: 10).frame(width: 1, height: 50).padding([.leading, .trailing])
                     VStack(spacing: 0) {
-                        Text(spendCategory?.rawValue.capitalized ?? "ex: Food").font(.system(size: 30))
+                        Text(spendCategory?.rawValue.capitalized ?? "Clothing").font(.system(size: 30))
                             .font(.system(size: 30)).opacity(spendCategory != nil ? 1.0 : 0.25)
                             .onTapGesture { showSpendCategories = true }
                         Text("Spending Category").foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
@@ -128,6 +128,6 @@ struct CustomNumberInputView: View {
 // MARK: - Render preview UI
 struct LogExpenseView_Previews: PreviewProvider {
     static var previews: some View {
-        LogExpenseView(manager: BudgetizeDataManager())
+        LogExpenseView(manager: BreadDataManager())
     }
 }

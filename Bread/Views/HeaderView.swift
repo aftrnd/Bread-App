@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-/// Dashboard header view
+// Dashboard Header View
 struct HeaderView: View {
     
-    @ObservedObject var manager: BudgetizeDataManager
+    @ObservedObject var manager: BreadDataManager
     var showUpdateBudgetFlow: () -> Void
     
     // MARK: - Main rendering function
@@ -28,7 +28,7 @@ struct HeaderView: View {
         }
     }
     
-    /// Header title and budgetize button
+    // Header title and budget button
     private var HeaderTitleButtonView: some View {
         VStack {
             HStack {
@@ -48,7 +48,7 @@ struct HeaderView: View {
         }.padding([.leading, .trailing], 20).foregroundColor(.white).padding(.top, 15)
     }
     
-    /// Month budget
+    // Month budget
     private var MonthBudgetView: some View {
         VStack(spacing: 5) {
             Text(manager.selectedMonth).font(.title)
@@ -56,7 +56,7 @@ struct HeaderView: View {
         }.foregroundColor(.white).frame(maxWidth: UIScreen.main.bounds.width-110)
     }
     
-    /// Month selector view
+    // Month selector view
     private var MonthSelectorView: some View {
         HStack {
             createArrowButton(name: "chevron.backward.circle") { manager.selectPreviousMonth() }
@@ -75,9 +75,9 @@ struct HeaderView: View {
     }
 }
 
-// MARK: - Render preview UI
+// Render preview UI
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(manager: BudgetizeDataManager(), showUpdateBudgetFlow: { })
+        HeaderView(manager: BreadDataManager(), showUpdateBudgetFlow: { })
     }
 }

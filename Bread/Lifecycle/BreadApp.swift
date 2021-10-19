@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct BreadApp: App {
     
-    // MARK: - Main rendering function
+    // Main rendering function
     var body: some Scene {
         return WindowGroup {
             DashboardContentView()

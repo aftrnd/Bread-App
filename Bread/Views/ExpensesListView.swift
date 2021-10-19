@@ -23,11 +23,12 @@ struct ExpensesListView: View {
                 ScrollView(showsIndicators: false) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Expenses").font(.system(size: 25)).fontWeight(.medium)
-                            RoundedRectangle(cornerRadius: 5)
-                                .frame(width: UIScreen.main.bounds.width/2.5, height: 2)
-                        }.foregroundColor(Color.white)
+                            Text("Purchases").font(.system(size: 25)).fontWeight(.heavy).foregroundColor(Color.white)
+                            RoundedRectangle(cornerRadius: 0).frame(width: 127, height: 1)
+                        }.foregroundColor(Color.gray)
+                        
                         Spacer()
+                        
                     }.padding(.leading, 5).padding(.bottom, 25).padding(.top, 30)
                     ForEach(0..<SpendingCategory.allCases.count, id: \.self, content: { index in
                         Button(action: {
@@ -35,13 +36,13 @@ struct ExpensesListView: View {
                         }, label: {
                             HStack(spacing: 20) {
                                 Image(SpendingCategory.allCases[index].rawValue)
-                                    .resizable().aspectRatio(contentMode: .fit).frame(width: 40)
+                                    .resizable().aspectRatio(contentMode: .fit).frame(width: 40, height: 40)
                                     .foregroundColor(Color.white)
                                 HStack {
                                     VStack(alignment: .leading) {
                                         Text(SpendingCategory.allCases[index].rawValue.capitalized)
                                             .font(.title3).bold().foregroundColor(Color.white)
-                                        Text("\(manager.transactionsCount(forCategory: SpendingCategory.allCases[index])) transactions")
+                                        Text("\(manager.transactionsCount(forCategory: SpendingCategory.allCases[index])) Transactions")
                                     }.lineLimit(1).minimumScaleFactor(0.5)
                                     Spacer()
                                     Text(manager.expensesTotal(forCategory: SpendingCategory.allCases[index]).dollarAmount)

@@ -8,7 +8,7 @@
 import SwiftUI
 import Foundation
 
-/// Rounded corner shape by providing which corners to be rounded
+// Rounded corner shape by providing which corners to be rounded
 struct RoundedCorner: Shape {
     var radius: CGFloat = .infinity
     var corners: UIRectCorner = .allCorners

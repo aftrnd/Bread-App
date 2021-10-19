@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Shows a list of expenses for a given category
+// Expenses list based on a given category
 struct CategoryExpensesContentView: View {
     
     @ObservedObject var manager: BudgetizeDataManager
@@ -25,7 +25,7 @@ struct CategoryExpensesContentView: View {
         })
     }
     
-    /// Header layer
+    // Header Layer
     private var HeaderLayer: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: AppConfig.categoryExpensesGradient), startPoint: .top, endPoint: .bottom)
@@ -38,7 +38,7 @@ struct CategoryExpensesContentView: View {
         }
     }
     
-    /// Total transactions layer
+    // Total Transactions
     private var TotalTransactionsLayer: some View {
         VStack {
             Spacer(minLength: UIScreen.main.bounds.height/3.5)

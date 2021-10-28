@@ -31,7 +31,7 @@ struct CategoryExpensesContentView: View {
             LinearGradient(gradient: Gradient(colors: AppConfig.categoryExpensesGradient), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             VStack(spacing: 0) {
-                Text(manager.expensesTotal(forCategory: category).dollarAmount).font(.system(size: 50)).bold().opacity(0.9)
+                Text(manager.expensesTotal(forCategory: category).dollarAmount).font(.system(size: 50)).bold().opacity(1)
                 Text("Total Spent for \(manager.selectedMonth)").opacity(0.8)
                 Spacer(minLength: UIScreen.main.bounds.height/1.8)
             }.lineLimit(1).minimumScaleFactor(0.5).padding(30).padding(.top, 10).foregroundColor(.white)
@@ -63,11 +63,11 @@ struct CategoryExpensesContentView: View {
             Spacer(minLength: UIScreen.main.bounds.height/2.7)
             ZStack {
                 RoundedCorner(radius: 45, corners: [.topLeft, .topRight])
-                    .foregroundColor(.white).shadow(color: Color(#colorLiteral(red: 0.8827491403, green: 0.9036039114, blue: 0.9225834608, alpha: 1)), radius: 10, x: 0, y: -10)
+                    .foregroundColor(.black).shadow(color: Color(#colorLiteral(red: 0.8827491403, green: 0.9036039114, blue: 0.9225834608, alpha: 1)), radius: 10, x: 0, y: -10)
                 if manager.transactionsCount(forCategory: category) == 0 {
                     VStack {
-                        Image(systemName: "cart.fill").font(.system(size: 40)).padding(5)
-                        Text("Nothing to See Here").font(.system(size: 27)).foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
+                        Image(systemName: "cart.fill").font(.system(size: 40)).padding(5).colorInvert()
+                        Text("Nothing to See Here").font(.system(size: 27)).foregroundColor(Color(.white))
                         Text("You don't have any transactions for this category yet").font(.system(size: 20))
                             .foregroundColor(Color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)))
                     }.multilineTextAlignment(.center).padding(30)

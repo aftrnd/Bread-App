@@ -33,7 +33,7 @@ struct HeaderView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text(AppConfig.headerTitle).font(.title3).fontWeight(.heavy)
+                    Text(AppConfig.headerTitle).font(.title3).fontWeight(.regular) + Text(AppConfig.customName).font(.title3).fontWeight(.heavy) + Text("!").font(.title3).fontWeight(.regular)
                     //RoundedRectangle(cornerRadius: 5).frame(width: 150, height: 2)
                 }
                 Spacer()

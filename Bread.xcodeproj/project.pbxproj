@@ -178,7 +178,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 79691C6125DC54950057EC4A /* Build configuration list for PBXProject "BreadApp" */;
+			buildConfigurationList = 79691C6125DC54950057EC4A /* Build configuration list for PBXProject "Bread" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -434,7 +434,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		79691C6125DC54950057EC4A /* Build configuration list for PBXProject "BreadApp" */ = {
+		79691C6125DC54950057EC4A /* Build configuration list for PBXProject "Bread" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				79691C7325DC54980057EC4A /* Debug */,

@@ -23,21 +23,19 @@ struct ExpensesListView: View {
                 ScrollView(showsIndicators: false) {
                     HStack {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Purchases").font(.system(size: 25)).fontWeight(.heavy).foregroundColor(Color.white)
-                            RoundedRectangle(cornerRadius: 0).frame(width: 127, height: 1)
-                        }.foregroundColor(Color.gray)
+                            Text("Purchases").font(.title).foregroundColor(Color.white)}
                         
                         Spacer()
                         
-                    }.padding(.leading, 5).padding(.bottom, 25).padding(.top, 30)
+                    }.padding(.leading, 0).padding(.bottom, 25).padding(.top, 25)
                     ForEach(0..<SpendingCategory.allCases.count, id: \.self, content: { index in
                         Button(action: {
                             didSelectCategory(SpendingCategory.allCases[index])
                         }, label: {
                             HStack(spacing: 20) {
                                 Image(SpendingCategory.allCases[index].rawValue)
-                                    .resizable().aspectRatio(contentMode: .fit).frame(width: 40, height: 40)
-                                    .foregroundColor(Color.white)
+                                    .resizable().aspectRatio(contentMode: .fit).frame(width: 25, height: 25)
+                                    .foregroundColor(Color.blue)
                                 HStack {
                                     VStack(alignment: .leading) {
                                         Text(SpendingCategory.allCases[index].rawValue.capitalized)
@@ -46,18 +44,18 @@ struct ExpensesListView: View {
                                     }.lineLimit(1).minimumScaleFactor(0.5)
                                     Spacer()
                                     Text(manager.expensesTotal(forCategory: SpendingCategory.allCases[index]).dollarAmount)
-                                        .font(.title2).fontWeight(.medium).multilineTextAlignment(.trailing)
+                                        .font(.title3).fontWeight(.medium).multilineTextAlignment(.trailing)
                                         .foregroundColor(Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)))
                                 }
                             }
                         }).opacity(manager.selectedMonth == Date().month ? 1 : 0.4)
                         if index != SpendingCategory.allCases.count - 1 {
-                            Divider().padding([.top, .bottom], 12)
+                            Divider().background(Color.gray).opacity(0.5).padding([.top, .bottom], 12)
                         }
                     })
                     Spacer(minLength: 50)
                 }
-                .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                .foregroundColor(Color.gray)
                 .padding([.leading, .trailing], 30)
             }.ignoresSafeArea()
         }
